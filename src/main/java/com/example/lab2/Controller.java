@@ -46,7 +46,7 @@ public class Controller {
         File file = fc.showSaveDialog(null);
 
         if (file != null) {
-            exp.export(imp.getArr(), calc.lhm, file);
+            exp.export(imp.getArr(), calc.getLhm(), file);
         }
 
     }

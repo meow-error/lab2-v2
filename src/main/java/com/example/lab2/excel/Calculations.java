@@ -8,7 +8,11 @@ import java.util.LinkedHashMap;
 
 public class Calculations {
 
-    public LinkedHashMap<String, Double[]> lhm = new LinkedHashMap<>();
+    private LinkedHashMap<String, Double[]> lhm = new LinkedHashMap<>();
+
+    public LinkedHashMap getLhm() {
+        return lhm;
+    }
 
     // 1.	Рассчитать среднее геометрическое для каждой выборки
     private void geom(double[][] arr) {
