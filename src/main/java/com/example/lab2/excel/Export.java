@@ -28,10 +28,6 @@ public class Export {
         for (int i = 0; i < arr.length; i++) {
             row0.createCell(i + 1, CellType.STRING).setCellValue("" + (char) ('A' + i));
         }
-//        row0.createCell(1, CellType.STRING).setCellValue("X");
-//        row0.createCell(2, CellType.STRING).setCellValue("Y");
-//        row0.createCell(3, CellType.STRING).setCellValue("Z");
-        // Как сделать не на 3 колонки а на больше???
 
         Set set = lhm.entrySet();
         Iterator iterator = set.iterator();

@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class Controller {
 
+    // Исключеия, вывод текста при нажатии кнопок и мб разобраться как работают вычисления, но впадлу
+
     Calculations calc = new Calculations();
     Import imp = new Import();
     Export exp = new Export();
