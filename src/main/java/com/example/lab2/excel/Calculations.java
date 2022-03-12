@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 
 public class Calculations {
 
-    private LinkedHashMap<String, Double[]> lhm = new LinkedHashMap<>();
+    private final LinkedHashMap<String, Double[]> lhm = new LinkedHashMap<>();
 
     public LinkedHashMap getLhm() {
         return lhm;
@@ -50,12 +50,22 @@ public class Calculations {
         lhm.put("Размах", range);
     }
 
-    // 5.	Рассчитать коэффициенты ковариации для всех пар случайных чисел (НА РАЗНЫХ ВЫБОРКАХ???????????) ((написать цикл чтобы каждый с каждым записался))
+//    // 5.	Рассчитать коэффициенты ковариации для всех пар случайных чисел (НА РАЗНЫХ ВЫБОРКАХ???????????) ((написать цикл чтобы каждый с каждым записался))
+//    private void covariance(double[][] arr) {
+//        Double[] covariance = new Double[arr.length];
+//        covariance[0] = new Covariance().covariance(arr[0], arr[1]);
+//        covariance[2] = new Covariance().covariance(arr[1], arr[2]);
+//        covariance[1] = new Covariance().covariance(arr[0], arr[2]);
+//        lhm.put("Коэффициенты ковариации", covariance);
+//    }
+
+    // 5.	Рассчитать коэффициенты ковариации для всех пар случайных чисел (НА РАЗНЫХ ВЫБОРКАХ С ЛЮБЫМ ЧИСЛОМ ((??????))
     private void covariance(double[][] arr) {
         Double[] covariance = new Double[arr.length];
-        covariance[0] = new Covariance().covariance(arr[0], arr[1]);
-        covariance[1] = new Covariance().covariance(arr[0], arr[2]);
-        covariance[2] = new Covariance().covariance(arr[1], arr[2]);
+        for (int i = 0; i < arr.length - 1; i++) {
+            covariance[i] = new Covariance().covariance(arr[i], arr[i + 1]);
+        }
+        covariance[arr.length - 1] = new Covariance().covariance(arr[arr.length - 1], arr[0]);
         lhm.put("Коэффициенты ковариации", covariance);
     }
 
