@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class Export {
 
-    public void export(double[][] arr, LinkedHashMap lhm, File file) throws IOException {
+    public void export(String[] arrNames, LinkedHashMap lhm, File file) throws IOException {
 
         String surname = "Левадний";
 
@@ -24,11 +24,13 @@ public class Export {
 
         sheet.setColumnWidth(0, 7500);
 
+        // Занесение названия колонок
         XSSFRow row0 = sheet.createRow(0);
-        for (int i = 0; i < arr.length; i++) {
-            row0.createCell(i + 1, CellType.STRING).setCellValue("" + (char) ('A' + i));
+        for (int i = 0; i < arrNames.length; i++) {
+            row0.createCell(i + 1, CellType.STRING).setCellValue(arrNames[i]);
         }
 
+        // Занесение числовых значений
         Set set = lhm.entrySet();
         Iterator iterator = set.iterator();
         int i = 1;
@@ -41,7 +43,6 @@ public class Export {
             }
             i++;
         }
-
 
         workbook.write(new FileOutputStream(file));
         workbook.close();
